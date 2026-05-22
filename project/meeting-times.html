@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meeting times — Kensington Recovery House</title>
+  <meta name="description" content="Weekly recovery and peer-support meetings at First Stop Recovery in Kensington. Open to residents and the neighborhood." />
+  <meta name="theme-color" content="#1A0E08" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    /* meeting-specific */
+    .week-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: var(--space-3); }
+    @media (max-width: 900px) { .week-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .week-grid { grid-template-columns: 1fr; } }
+    .day-col { background: var(--paper); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-4); display: flex; flex-direction: column; gap: var(--space-3); min-height: 240px; }
+    .day-col h3 { font-size: 18px; letter-spacing: 0.04em; }
+    .day-col .day-date { font-family: var(--font-mono); font-size: 12px; color: var(--fg-muted); margin-bottom: var(--space-2); }
+    .meeting { background: var(--cream); border-radius: var(--radius-md); padding: 10px 12px; font-size: 14px; line-height: 1.4; display: flex; flex-direction: column; gap: 2px; }
+    .meeting .time { font-family: var(--font-mono); font-weight: 600; font-size: 13px; color: var(--espresso); letter-spacing: 0.04em; }
+    .meeting .name { font-weight: 600; color: var(--fg); }
+    .meeting .type { font-size: 12px; color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+    .meeting.teal { border-left: 3px solid var(--teal); padding-left: 10px; }
+    .meeting.gold { border-left: 3px solid var(--gold); padding-left: 10px; }
+    .meeting.red  { border-left: 3px solid var(--red);  padding-left: 10px; }
+    .day-empty { font-size: 13px; color: var(--fg-faint); font-style: italic; }
+  </style>
+</head>
+<body data-screen-label="Meeting Times">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="urgent-strip">
+    <strong>Need a bed tonight?</strong>
+    <span>Walk in 9am&ndash;5pm or call <a href="tel:2159177474">215-917-7474</a></span>
+    <span>&middot; 2418 Kensington Ave, Philadelphia</span>
+  </div>
+
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="index.html" aria-label="Kensington Recovery House home">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <span class="brand-words">Kensington Recovery House<span class="sub">A First Stop Recovery program</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" id="navToggle"><span></span></button>
+      <nav class="nav" id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="start-your-journey.html">Apply</a>
+        <a href="meeting-times.html" class="is-active">Meetings</a>
+        <a href="events.html">Events</a>
+        <a class="btn btn-primary nav-cta" href="start-your-journey.html">Get help</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ PAGE HEADER ============ -->
+    <section style="padding: var(--space-9) 0 var(--space-7); background: var(--cream);">
+      <div class="container">
+        <span class="eyebrow">Meeting times</span>
+        <h1>Recovery meetings, every week.</h1>
+        <p class="lead" style="max-width: 60ch; margin-top: var(--space-4);">Held at <strong>2418 Kensington Ave</strong>. Open to residents of First Stop and to anyone in the neighborhood. No fee, no sign-up. Walk in.</p>
+        <div class="hero-ctas" style="margin-top: var(--space-5);">
+          <a class="btn btn-primary" href="#schedule">Jump to schedule</a>
+          <a class="btn btn-secondary" href="tel:2159177474">Call to confirm times</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MEETING TYPES KEY ============ -->
+    <section class="bg-paper" style="padding: var(--space-7) 0;">
+      <div class="container">
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap; align-items: center;">
+          <span class="eyebrow" style="margin: 0;">Meeting types</span>
+          <span class="pill pill-teal">12-step (AA / NA)</span>
+          <span class="pill pill-gold">Peer support</span>
+          <span class="pill pill-red">House meeting (residents only)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WEEKLY SCHEDULE ============ -->
+    <section id="schedule" class="bg-cream">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Weekly schedule</span>
+          <h2>A typical week at First Stop.</h2>
+          <p>Times are consistent week to week. Holidays can shift things &mdash; call first if you&rsquo;re traveling in.</p>
+        </div>
+
+        <div class="week-grid">
+          <!-- MONDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Monday</h3>
+              <div class="day-date">MON</div>
+            </div>
+            <div class="meeting teal">
+              <span class="time">7:00 PM</span>
+              <span class="name">AA Open</span>
+              <span class="type">12-step &middot; Open</span>
+            </div>
+            <div class="meeting red">
+              <span class="time">8:30 PM</span>
+              <span class="name">House check-in</span>
+              <span class="type">Residents only</span>
+            </div>
+          </div>
+
+          <!-- TUESDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Tuesday</h3>
+              <div class="day-date">TUE</div>
+            </div>
+            <div class="meeting gold">
+              <span class="time">10:00 AM</span>
+              <span class="name">Morning peer support</span>
+              <span class="type">Open to neighborhood</span>
+            </div>
+            <div class="meeting teal">
+              <span class="time">7:00 PM</span>
+              <span class="name">NA Step Study</span>
+              <span class="type">12-step &middot; Open</span>
+            </div>
+          </div>
+
+          <!-- WEDNESDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Wednesday</h3>
+              <div class="day-date">WED</div>
+            </div>
+            <div class="meeting gold">
+              <span class="time">12:00 PM</span>
+              <span class="name">Lunch & talk</span>
+              <span class="type">Peer support &middot; Open</span>
+            </div>
+            <div class="meeting teal">
+              <span class="time">7:00 PM</span>
+              <span class="name">AA Big Book</span>
+              <span class="type">12-step &middot; Open</span>
+            </div>
+          </div>
+
+          <!-- THURSDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Thursday</h3>
+              <div class="day-date">THU</div>
+            </div>
+            <div class="meeting gold">
+              <span class="time">10:00 AM</span>
+              <span class="name">Women&rsquo;s peer circle</span>
+              <span class="type">Peer support &middot; Open</span>
+            </div>
+            <div class="meeting teal">
+              <span class="time">7:00 PM</span>
+              <span class="name">NA Open</span>
+              <span class="type">12-step &middot; Open</span>
+            </div>
+            <div class="meeting red">
+              <span class="time">8:30 PM</span>
+              <span class="name">House meeting</span>
+              <span class="type">Residents only</span>
+            </div>
+          </div>
+
+          <!-- FRIDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Friday</h3>
+              <div class="day-date">FRI</div>
+            </div>
+            <div class="meeting gold">
+              <span class="time">12:00 PM</span>
+              <span class="name">Lunch & talk</span>
+              <span class="type">Peer support &middot; Open</span>
+            </div>
+            <div class="meeting teal">
+              <span class="time">7:00 PM</span>
+              <span class="name">AA Speaker</span>
+              <span class="type">12-step &middot; Open</span>
+            </div>
+          </div>
+
+          <!-- SATURDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Saturday</h3>
+              <div class="day-date">SAT</div>
+            </div>
+            <div class="meeting gold">
+              <span class="time">9:00 AM</span>
+              <span class="name">Breakfast meeting</span>
+              <span class="type">Peer support &middot; Open</span>
+            </div>
+            <div class="meeting teal">
+              <span class="time">6:30 PM</span>
+              <span class="name">NA Open</span>
+              <span class="type">12-step &middot; Open</span>
+            </div>
+          </div>
+
+          <!-- SUNDAY -->
+          <div class="day-col">
+            <div>
+              <h3>Sunday</h3>
+              <div class="day-date">SUN</div>
+            </div>
+            <div class="meeting gold">
+              <span class="time">11:00 AM</span>
+              <span class="name">Sunday gathering</span>
+              <span class="type">Peer support &middot; Open</span>
+            </div>
+            <div class="meeting red">
+              <span class="time">7:00 PM</span>
+              <span class="name">House meeting</span>
+              <span class="type">Residents only</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="small" style="color: var(--fg-muted); margin-top: var(--space-6); max-width: 65ch;">
+          <strong>Placeholder schedule.</strong> Edit times in <code>meeting-times.html</code> &mdash; each meeting is a <code>.meeting</code> block. Replace the placeholder schedule with the real one whenever ready.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ FIRST TIME ============ -->
+    <section class="bg-paper">
+      <div class="container">
+        <div class="split">
+          <div>
+            <span class="eyebrow">First time?</span>
+            <h2>What to expect.</h2>
+            <p class="lead">If you&rsquo;ve never been to a meeting, that&rsquo;s OK. Most of our regulars hadn&rsquo;t either, the first time.</p>
+            <ul style="list-style: none; padding: 0; margin: var(--space-5) 0; display: flex; flex-direction: column; gap: var(--space-3);">
+              <li><strong>You don&rsquo;t have to share.</strong> Listening is enough.</li>
+              <li><strong>No fee.</strong> A basket goes around &mdash; entirely optional.</li>
+              <li><strong>Come as you are.</strong> No dress code, no signup. Just show up.</li>
+              <li><strong>Confidentiality.</strong> What&rsquo;s said in the room stays in the room.</li>
+            </ul>
+          </div>
+          <div class="card card-accent" style="padding: var(--space-6);">
+            <h3>Getting here</h3>
+            <p class="mb-3"><strong>2418 Kensington Ave</strong><br />Philadelphia, PA 19125</p>
+            <p class="mb-3"><strong>SEPTA</strong> &middot; Market-Frankford Line to Somerset; walk south on Kensington.</p>
+            <p class="mb-3"><strong>Bus</strong> &middot; Route 60 stops a block away.</p>
+            <p><strong>Driving</strong> &middot; Street parking on Kensington and the side streets.</p>
+            <a class="btn btn-primary mt-3" href="https://maps.google.com/?q=2418+Kensington+Ave+Philadelphia+PA+19125" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ NEWSLETTER ============ -->
+    <section class="bg-cream">
+      <div class="container">
+        <div class="split">
+          <div>
+            <span class="eyebrow">Stay in the loop</span>
+            <h2>Schedule changes, holidays, new meetings.</h2>
+            <p>We send a short email when something on the schedule shifts &mdash; usually once or twice a month, sometimes a heads-up for a holiday.</p>
+          </div>
+          <div>
+            <!-- GHL_FORM: Newsletter -->
+            <div class="ghl-slot">
+              <strong>Newsletter signup</strong>
+              Replace this <code>&lt;!-- GHL_FORM: Newsletter --&gt;</code> placeholder with the GHL <em>Newsletter</em> form embed.<br /><br />
+              <small>Fields: Email. Optional: Name.</small>
+            </div>
+            <!-- /GHL_FORM -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" style="color: var(--cream);">
+            <span class="brand-mark" aria-hidden="true">K</span>
+            <span class="brand-words">Kensington Recovery House<span class="sub" style="color: color-mix(in srgb, var(--cream) 60%, transparent);">A First Stop Recovery program</span></span>
+          </a>
+          <p>An open-door recovery house on Kensington Avenue in Philadelphia. No cost barrier. No time limit.</p>
+          <div class="social-row" style="margin-top: var(--space-4);">
+            <a href="https://www.facebook.com/firststoprecovery/" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5c0-1.1.5-2 2-2h2V2.1C16.6 2 15.4 1.9 14.3 1.9c-3.2 0-5.3 2-5.3 5.5V10H5v4h4v8h4z"/></svg></a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Visit</h4><ul><li>2418 Kensington Ave</li><li>Philadelphia, PA 19125</li><li><a href="tel:2159177474">215-917-7474</a></li><li><a href="mailto:FirstStopKensington@gmail.com">FirstStopKensington@gmail.com</a></li></ul></div>
+        <div><h4>Program</h4><ul><li><a href="about.html">About us</a></li><li><a href="programs.html">Programs</a></li><li><a href="start-your-journey.html">Start your journey</a></li><li><a href="meeting-times.html">Meeting times</a></li><li><a href="events.html">Events</a></li></ul></div>
+        <div><h4>Get involved</h4><ul><li><a href="https://www.paypal.com/donate" target="_blank" rel="noopener">Donate</a></li><li><a href="start-your-journey.html#refer">Refer someone</a></li><li><a href="start-your-journey.html#volunteer">Volunteer</a></li><li><a href="start-your-journey.html#partner">Partner with us</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2024&ndash;2026 First Stop Recovery &middot; Kensington Recovery House. All rights reserved.</span>
+        <span>501(c)(3) nonprofit</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){var t=document.getElementById('navToggle'),n=document.getElementById('nav');if(!t||!n)return;t.addEventListener('click',function(){var o=n.classList.toggle('is-open');t.setAttribute('aria-expanded',String(o));});})();
+  </script>
+</body>
+</html>
