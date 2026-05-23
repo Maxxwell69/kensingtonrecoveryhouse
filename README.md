@@ -1,25 +1,75 @@
-# CODING AGENTS: READ THIS FIRST
+# Kensington Recovery House
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+A static marketing site for **Kensington Recovery House**, a program of **First Stop Recovery** (501c3).
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+- **Stack**: plain HTML + CSS (zero build step)
+- **Hosting**: Vercel (works out of the box — `vercel.json` enables clean URLs)
+- **Forms / CRM**: GoHighLevel — embeds drop into the `<!-- GHL_FORM: ... -->` placeholders
+- **Donate**: PayPal — replace `https://www.paypal.com/donate` links with the real donation URL
+- **Maintained from**: Claude design (direct-edit safe — every page is self-contained HTML)
 
-## What you should do — IMPORTANT
+## Pages
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+| Route | File |
+|---|---|
+| `/` | `index.html` |
+| `/about` | `about.html` |
+| `/programs` | `programs.html` |
+| `/start-your-journey` | `start-your-journey.html` |
+| `/meeting-times` | `meeting-times.html` |
+| `/events` | `events.html` |
 
-**Read `project/index.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Deploy to Vercel via GitHub
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+1. Push this folder to a new GitHub repo.
+2. In Vercel: **Add New > Project > Import Git Repository**, pick the repo.
+3. **Framework Preset**: *Other* &middot; **Build Command**: *(leave blank)* &middot; **Output Directory**: *(leave blank — root)*.
+4. Deploy. Done.
 
-## About the design files
+Each push to `main` redeploys automatically.
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## Filling in GHL forms
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+Search the codebase for `<!-- GHL_FORM:` &mdash; each placeholder names the form it expects:
 
-## Bundle contents
+```
+<!-- GHL_FORM: Contact -->
+<!-- GHL_FORM: Intake -->
+<!-- GHL_FORM: Referring Agency -->
+<!-- GHL_FORM: Newsletter -->
+<!-- GHL_FORM: Volunteer -->
+```
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Kensington recvery house` project files (HTML prototypes, assets, components)
+Replace each one with the iframe / script GoHighLevel gives you when you publish that form. The `.ghl-slot` wrapper element is the placeholder UI &mdash; delete it once the real form is in.
+
+## Filling in PayPal
+
+Search for `paypal.com/donate` and replace with your real donate URL.
+
+## Replacing photo placeholders
+
+Look for `class="photo-placeholder"` &mdash; these are styled empty divs. To swap in a real photo:
+
+```html
+<!-- before -->
+<div class="hero-photo photo-placeholder">Photo &mdash; Front door</div>
+
+<!-- after -->
+<div class="hero-photo" style="background-image: url('/photos/front-door.jpg'); background-size: cover; background-position: center;"></div>
+```
+
+Drop images into a `/photos` folder at the project root.
+
+## Local preview
+
+Open `index.html` in a browser, or run any static server:
+
+```bash
+npx serve .
+# or
+python3 -m http.server
+```
+
+## Editing from Claude
+
+Open this project in Claude. Every page is one file. Edit copy directly in the chat preview or ask Claude to update any section &mdash; no build step, no JSX, no framework gotchas.
