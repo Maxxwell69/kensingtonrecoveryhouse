@@ -4,8 +4,7 @@
   "redirects": [
     { "source": "/home", "destination": "/" },
     { "source": "/about-us-1", "destination": "/about" },
-    { "source": "/about-us", "destination": "/about" },
-    { "source": "/meeting-times", "destination": "/meeting-times" }
+    { "source": "/about-us", "destination": "/about" }
   ],
   "headers": [
     {
